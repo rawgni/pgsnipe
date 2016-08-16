@@ -13,7 +13,6 @@ from pogo.pokedex import pokedex
 
 def findByName(session, name):
 
-    # print all nearby pokemon
     cells = session.getMapObjects(bothDirections=False)
 
     for cell in cells.map_cells:
@@ -38,6 +37,7 @@ def catch(session, encounter, pokemon):
         if n_berry > 0:
             logging.info("Using Razz Berry")
             session.useItemCapture(items.RAZZ_BERRY, pokemon)
+            time.sleep(2)
 
         available_ball = None
         
@@ -75,13 +75,16 @@ def snipe(session, olat, olng, lat, lng, name):
     # wait 10s
     time.sleep(10)
 
+    logging.info("Looking for " + name + " at " + str(lat) + ", " + str(lng))
+
     pokemon = findByName(session, name)
     encounter = None
 
     # found
     if pokemon:
-        logging.info("Found.. " + name)
         encounter = session.encounterPokemon(pokemon)
+    else:
+        logging.info(name + " not found.")
 
     # teleport back
     session.setCoordinates(olat, olng)
