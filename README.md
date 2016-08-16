@@ -1,7 +1,7 @@
  PGSnipe
 ---------
 
-PGSnipe is a tool for snipping Pokemon in Pokemon Go.
+PGSnipe is a command line tool for snipping Pokemon in Pokemon Go.
 
 
  Requirements
@@ -19,3 +19,9 @@ PGSnipe is a tool for snipping Pokemon in Pokemon Go.
 - Install virtualenv and activate it
 - Run ```pip install -r requirements.txt```
 - Run ```python snipe.py``` with the required parameters
+
+ 
+ Thanks
+--------
+- https://github.com/rubenvereecken/pokemongo-api for the API
+- https://github.com/earshel/PokeyPySnipe cool UI
